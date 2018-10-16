@@ -17,13 +17,21 @@ public class Client {
 		    InputStreamReader isr = new InputStreamReader(System.in);
 		    BufferedReader br = new BufferedReader(isr);
 		    String msgin="",msgout="";
-		    while(!msgin.equals("end")) {
+		    while(true) {
 				msgin = din.readUTF();
 		    	System.out.println(msgin);
 		    	msgout = br.readLine();
 		    	dout.writeUTF(msgout);
+		    	if (msgout.equals("0")) {
+		    		System.out.println("Fechando conexao");
+		    		s.close();
+		    		System.out.println("Conexao fechada");
+		    		break;
+		    	}
 		    	
 		    }
+		    dout.close();
+		    din.close();
 		    s.close();
  
 
