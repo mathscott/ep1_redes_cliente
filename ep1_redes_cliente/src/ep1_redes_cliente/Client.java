@@ -30,6 +30,7 @@ public class Client {
 		    	}
 		    	
 		    }
+
 		    dout.close();
 		    din.close();
 		    s.close();
